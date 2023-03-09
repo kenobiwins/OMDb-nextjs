@@ -2,7 +2,7 @@
   "name": "omdb",
   "version": "0.1.0",
   "private": true,
-   "homepage": "https://kenobiwins.github.io/OMDb/",
+  "homepage": "https://kenobiwins.github.io/OMDb-nextjs/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
