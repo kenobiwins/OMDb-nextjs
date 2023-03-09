@@ -1,11 +1,12 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchMovieById, fetchMoviesBySearch } from "./operations";
+import { FavMovieType } from "components/types";
 
 export interface SliceState {
   movies: [];
   pages: number;
-  favorites: any[];
-  currentMovie: any;
+  favorites: FavMovieType[];
+  currentMovie: FavMovieType | null;
   isLoading: boolean;
   isError: boolean;
 }

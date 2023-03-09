@@ -15,7 +15,7 @@ const fetchMoviesBySearch = createAsyncThunk(
   async ({ s, page }: searchProps, thunkAPI) => {
     try {
       const { data } = await axios.get("/", { params: { apikey: API_KEY, s, page } });
-console.log(data);
+      console.log(data);
 
       if (data.Response === "False") {
         throw new Error(data.Error);
@@ -28,18 +28,21 @@ console.log(data);
   }
 );
 
-const fetchMovieById = createAsyncThunk("movies/fetchMovieById", async (id:string|string[], thunkAPI) => {
-  try {
-    const { data } = await axios.get("/", { params: { apikey: API_KEY, i: id } });
+const fetchMovieById = createAsyncThunk(
+  "movies/fetchMovieById",
+  async (id: string | string[], thunkAPI) => {
+    try {
+      const { data } = await axios.get("/", { params: { apikey: API_KEY, i: id } });
 
-    if (data.Response === "False") {
-      throw new Error(data.Error);
+      if (data.Response === "False") {
+        throw new Error(data.Error);
+      }
+
+      return data;
+    } catch ({ message }: unknown | any) {
+      return thunkAPI.rejectWithValue(message);
     }
-
-    return data;
-  } catch ({ message }: unknown | any) {
-    return thunkAPI.rejectWithValue(message);
   }
-});
+);
 
 export { fetchMoviesBySearch, fetchMovieById };

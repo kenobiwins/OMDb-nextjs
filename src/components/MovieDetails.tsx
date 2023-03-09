@@ -3,13 +3,12 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, deleteFromFavorite } from "redux/movies/moviesSlice";
 import { selectCurrentMovie, selectFavoritesMovies } from "redux/movies/selectors";
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -24,14 +23,14 @@ const MovieDetails = () => {
   };
 
   const handleToggleFavorite = () => {
-
     if (isIncludes()) {
       if (router.pathname.includes("favorites")) {
-
-        router.back()
+        router.back();
       }
-      dispatch(deleteFromFavorite(currentMovie.imdbID));
-      return;
+      if (currentMovie) {
+        dispatch(deleteFromFavorite(currentMovie.imdbID));
+        return;
+      }
     } else {
       dispatch(addToFavorites({ ...currentMovie }));
       return;
@@ -44,7 +43,7 @@ const MovieDetails = () => {
 
   return (
     currentMovie && (
-      <Card sx={{ maxWidth: 345, marginTop: 8 }}>
+      <Card sx={{ maxWidth: 345, marginTop: 4 }}>
         <Button onClick={handleGoBack}>Go back</Button>
         <CardMedia
           sx={{ height: 500 }}

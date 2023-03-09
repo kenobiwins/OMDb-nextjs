@@ -19,25 +19,25 @@ const moviesPersistConfig = {
   whitelist: ["favorites"],
 };
 
- const store = configureStore({
-   reducer: {
-     movies: persistReducer(moviesPersistConfig, moviesReducer),
-   },
+const store = configureStore({
+  reducer: {
+    movies: persistReducer(moviesPersistConfig, moviesReducer),
+  },
 
-   middleware: (getDefaultMiddleware) => [
-     ...getDefaultMiddleware({
-       serializableCheck: {
-         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-       },
-     }),
-   ],
- });
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  ],
+});
 
-export type AppDispatch = typeof store.dispatch; 
+export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;
 
 export const persistor = persistStore(store);
-export default store
+export default store;
 
 setupListeners(store.dispatch);

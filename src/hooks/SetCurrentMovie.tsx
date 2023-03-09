@@ -17,4 +17,4 @@ const SetCurrentMovie = () => {
   }, [imdbID, dispatch]);
 };
 
-export default SetCurrentMovie
+export default SetCurrentMovie;

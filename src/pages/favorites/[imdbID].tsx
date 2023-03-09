@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { fetchMovieById } from "redux/movies/operations";
 import { AppThunkDispatch } from "redux/store";
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 const Movie = () => {
   const dispatch = useDispatch<AppThunkDispatch>();

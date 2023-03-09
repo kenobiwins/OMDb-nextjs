@@ -4,12 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesBySearch } from "redux/movies/operations";
 import { AppThunkDispatch } from "redux/store";
 import MoviesList from "components/MoviesList";
-import {
-  selectIsError,
-  selectIsLoading,
-  selectMoviesBySearch,
-  selectTotalPages,
-} from "redux/movies/selectors";
+import { selectIsError, selectMoviesBySearch, selectTotalPages } from "redux/movies/selectors";
 import PaginationComponent from "components/PaginationComponent";
 import { useRouter } from "next/router";
 import { refreshState } from "redux/movies/moviesSlice";

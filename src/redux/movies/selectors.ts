@@ -7,7 +7,7 @@ const selectFavoritesMovies = (state: selectorsPropsState) => state.movies.favor
 const selectCurrentMovie = (state: selectorsPropsState) => state.movies.currentMovie;
 const selectTotalPages = (state: selectorsPropsState) => state.movies.pages;
 const selectIsLoading = (state: selectorsPropsState) => state.movies.isLoading;
-const selectIsError = (state: selectorsPropsState) => state.movies.isError
+const selectIsError = (state: selectorsPropsState) => state.movies.isError;
 
 export {
   selectFavoritesMovies,
